@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans transition-colors duration-300 antialiased min-h-screen;
+  }
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Custom styles for input types */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+.theme-midnight input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.9);
+}
+
+/* Themes Definition */
+.theme-midnight {
+  background-color: #141829;
+  color: #f1f5f9;
+}
+
+.theme-midnight ::-webkit-scrollbar-track {
+  background: #141829;
+}
+
+.theme-midnight ::-webkit-scrollbar-thumb {
+  background: #2c3658;
+  border-radius: 4px;
+}
+
+.theme-midnight ::-webkit-scrollbar-thumb:hover {
+  background: #384570;
+}
+
+.theme-vanilla {
+  background-color: #f7f4ee;
+  color: #1e293b;
+}
+
+.theme-vanilla ::-webkit-scrollbar-track {
+  background: #f7f4ee;
+}
+
+.theme-vanilla ::-webkit-scrollbar-thumb {
+  background: #dcd0b8;
+  border-radius: 4px;
+}
+
+.theme-vanilla ::-webkit-scrollbar-thumb:hover {
+  background: #c7baa1;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(27, 33, 56, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.theme-vanilla .glass {
+  background: rgba(240, 231, 213, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Animated backgrounds */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Soft loading animations */
+.skeleton {
+  background: linear-gradient(90deg, #1b2138 25%, #2c3658 50%, #1b2138 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.theme-vanilla .skeleton {
+  background: linear-gradient(90deg, #f0e7d5 25%, #dcd0b8 50%, #f0e7d5 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
